@@ -1,0 +1,8 @@
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\obj\Debug\net10.0\TodoApp.csproj.AssemblyReference.cache
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\obj\Debug\net10.0\TodoApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\obj\Debug\net10.0\TodoApp.AssemblyInfoInputs.cache
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\obj\Debug\net10.0\TodoApp.AssemblyInfo.cs
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\obj\Debug\net10.0\TodoApp.csproj.CoreCompileInputs.cache
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\obj\Debug\net10.0\TodoApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\obj\Debug\net10.0\TodoApp.MvcApplicationPartsAssemblyInfo.cache
