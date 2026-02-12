@@ -1,6 +1,6 @@
-namespace TodoApp;
-
-public class TodoModels
+namespace PostgresAPI.Models
+{
+    public class TodoModel
 {
     public int Id { get; set; }
 
@@ -9,3 +9,6 @@ public class TodoModels
     public bool IsComplete { get; set; }
 
 }
+}
+
+

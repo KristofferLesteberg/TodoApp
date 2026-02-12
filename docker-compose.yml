@@ -1,0 +1,7 @@
+Services:
+    db:
+        image: postgres:15
+        container_name: Todo
+        ports:
+          - "5432:5432"
+        
