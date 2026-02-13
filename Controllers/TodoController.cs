@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PostgresAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace TodoApp.Controllers
 {
@@ -23,7 +24,7 @@ namespace TodoApp.Controllers
                 Id = x.Id,
                 Name = x.Name,
                 IsComplete = x.IsComplete,
-
+                Description = x.Description,
             }).ToListAsync();
 
             return Ok(todoResult);
@@ -42,8 +43,11 @@ namespace TodoApp.Controllers
         public async Task<IActionResult> UpdateTodo([FromBody] TodoModel todo)
         {
             var todoRow = await _context.Todos.Where(x => x.Id == todo.Id)
-                .ExecuteUpdateAsync(x => x.SetProperty(x => x.Name, todo.Name));
-                
+                .ExecuteUpdateAsync(x => x
+                    .SetProperty(x => x.Name, todo.Name)
+                    .SetProperty(x => x.IsComplete, todo.IsComplete)
+                    .SetProperty(x => x.Description, todo.Description));
+
             return Ok(todo);
         }
 

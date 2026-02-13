@@ -133,3 +133,8 @@ C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\obj\Debug\net10.0\refint\Tod
 C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\obj\Debug\net10.0\TodoApp.pdb
 C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\obj\Debug\net10.0\TodoApp.genruntimeconfig.cache
 C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\obj\Debug\net10.0\ref\TodoApp.dll
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\bin\Debug\net10.0\DotNetEnv.dll
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\bin\Debug\net10.0\Sprache.dll
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
