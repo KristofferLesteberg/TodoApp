@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TodoApp.Controllers
 {
-
     [Route("api/[controller]")]
     [ApiController]
     public class TodoAppController : ControllerBase
