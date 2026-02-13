@@ -1,0 +1,106 @@
+############################
+# .NET / C# build artifacts
+############################
+bin/
+obj/
+out/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+############################
+# User-specific files
+############################
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+############################
+# Visual Studio
+############################
+.vs/
+*.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+############################
+# Rider
+############################
+.idea/
+*.sln.iml
+
+############################
+# Logs
+############################
+logs/
+*.log
+
+############################
+# Environment / secrets
+############################
+.env
+.env.*
+appsettings.Development.json
+secrets.json
+
+# ASP.NET Core user secrets
+**/secrets.json
+
+############################
+# Publish output
+############################
+publish/
+wwwroot/
+
+############################
+# Entity Framework
+############################
+Migrations/*.Designer.cs
+Migrations/*.resx
+
+############################
+# PostgreSQL / database files
+############################
+*.db
+*.sqlite
+*.sqlite3
+
+# If you run local postgres via docker volumes
+postgres-data/
+pgdata/
+
+############################
+# Docker
+############################
+docker-compose.override.yml
+
+############################
+# OS files
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# Node (if frontend or tooling)
+############################
+node_modules/
+dist/
+build/
+
+############################
+# Coverage / testing
+############################
+coverage/
+*.coverage
+*.trx
+
+############################
+# Misc
+############################
+*.tmp
+*.temp

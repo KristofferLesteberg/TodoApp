@@ -6,13 +6,14 @@ COPY . /App/
 
 RUN dotnet restore
 
+RUN dotnet publish -c Release -o /App/publish
 
-FROM mcr.microsoft.com/dotnet/aspnet:10.0
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 
 
 WORKDIR /App
 
-COPY --from=buld /App/Out .
+COPY --from=build /App/publish .
 
 EXPOSE 8080
 
-ENTRYPOINT ["dotnet", "TodoApi.dll"]
+ENTRYPOINT [ "dotnet", "TodoApp.dll"]

@@ -15,7 +15,6 @@ namespace TodoApp.Controllers
         {
             _context = context;
         }
-
         //Get endpoint
         [HttpGet("GetTodos")]
         public async Task<IActionResult> GetTodo()
@@ -49,22 +48,15 @@ namespace TodoApp.Controllers
             return Ok(todo);
         }
 
-
         [HttpDelete("DeleteTodo")]
         public async Task<IActionResult> DeleteTodo(int todoId)
         {
             var todoRow = await _context.Todos.Where(x => x.Id == todoId).ExecuteDeleteAsync();
 
             return Ok(true);
-        }
-
-    
-
-
-    
+        }    
     }
 
-    
 }
 
 
