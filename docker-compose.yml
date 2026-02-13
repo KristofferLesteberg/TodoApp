@@ -7,7 +7,7 @@ services:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: Fleskeberg4
         ports:
-          - "5432:5432"
+          - "5433:5432"
         volumes:
             - postgres_data:/var/lib/postgresql/data
 
@@ -20,7 +20,7 @@ services:
         ports:
             - "8080:8080"
         environment:
-            ConnectionStrings__DefaultConnection: "Host=postgresDb;Port=5432;Database=AppDb;Username=postgres;Password=Fleskeberg4"
+            ConnectionStrings__DefaultConnection: "Host=postgresDb;Port=5432;Database=AppDb;Username=postgres;Password=${POSTGRES_PSW}"
             ASPNETCORE_URLS: http://+:8080
         depends_on:
             - postgresDb
