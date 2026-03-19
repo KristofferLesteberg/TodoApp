@@ -7,7 +7,7 @@ const CreateTodo = (todos, setTodos) => {
  
     useEffect(() => {
 
-        const addtodo = async (e) => {
+        const addTodo = async (e) => {
             e.preventDefault()
 
             const newTodo = {
@@ -22,10 +22,11 @@ const CreateTodo = (todos, setTodos) => {
             }
 
         }
-
+        addTodo()
     }, [])
+    
     return (
-        <form onSubmit={addtodo}>
+        <form onSubmit={addTodo}>
             <input
                 type="text"
                 placeholder='Name'
