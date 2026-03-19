@@ -15,17 +15,12 @@ namespace TodoApp.Controllers
         {
             _context = context;
         }
-        //Get endpoint
+
+        
         [HttpGet("GetTodos")]
         public async Task<IActionResult> GetTodo()
         {
-            var todoResult = await _context.Todos.Select(x => new TodoModel
-            {
-                Id = x.Id,
-                Name = x.Name,
-                IsComplete = x.IsComplete,
-                Description = x.Description,
-            }).ToListAsync();
+            var todoResult = await _context.Todos.ToListAsync();
 
             return Ok(todoResult);
         }
@@ -47,7 +42,6 @@ namespace TodoApp.Controllers
                     .SetProperty(x => x.Name, todo.Name)
                     .SetProperty(x => x.IsComplete, todo.IsComplete)
                     .SetProperty(x => x.Description, todo.Description));
-
             return Ok(todo);
         }
 
@@ -55,7 +49,6 @@ namespace TodoApp.Controllers
         public async Task<IActionResult> DeleteTodo(int todoId)
         {
             var todoRow = await _context.Todos.Where(x => x.Id == todoId).ExecuteDeleteAsync();
-
             return Ok(true);
         }    
     }
