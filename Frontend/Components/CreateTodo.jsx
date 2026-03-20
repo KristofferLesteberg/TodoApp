@@ -6,19 +6,22 @@ const CreateTodo = ({ todos, setTodos }) => {
 
     const [name, setName] = useState("")
     const [description, setDescription] =useState("")
-    const [message, setMessage] = useState("")
+    
 
 
     const addTodoToTodos = () => {
         const todo = {
-            
-
+            "name": name,
+            "description": description
         }
+        setTodos(todo)
     }
 
     const addTodo = async (e) => {
         e.preventDefault()
 
+
+        //Create POST request - method, headers and content(body)
         const POSTdata = {
             method: "POST",
             headers: { 'Content-Type': 'application/json'},
@@ -32,13 +35,15 @@ const CreateTodo = ({ todos, setTodos }) => {
                 throw new Error("respons was not ok")
             }
             const result = await respons.json()
-            setMessage("You have added a todo!")
+            
         } catch(error) {
             console.log(error.message)
         } finally {
             setName("")
             setDescription("")
-            
+
+            //Force reload - not optimal
+            window.location.reload();
         } 
     }
 

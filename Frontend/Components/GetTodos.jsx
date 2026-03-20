@@ -12,7 +12,6 @@ const GetTodos = ({ todos, setTodos }) => {
                 if(!respons.ok) {
                     throw new Error("Error fetching")
                 }
-
                 const result = await respons.json()
 
                 console.log(result)
