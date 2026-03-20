@@ -18,7 +18,6 @@ namespace TodoApp.Controllers
             _context = context;
         }
 
-        
         [HttpGet("GetTodos")]
         public async Task<IActionResult> GetTodo()
         {

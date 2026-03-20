@@ -28,7 +28,6 @@ const GetTodos = ({ todos, setTodos }) => {
         getTodos()
     }, [])
 
-
    if(loading) {
     return (
         <div>loading...</div>
