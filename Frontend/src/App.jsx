@@ -8,12 +8,12 @@ import GetTodos from '../Components/GetTodos'
 
 const App = () => {
   const [todos, setTodos] = useState([])
-//<<CreateTodo todos={todos} setTodos={setTodos} /> 
+
 
   return (
     <div>
       
-      <GetTodos />
+      <GetTodos todos={todos} setTodos={setTodos} />
     </div>
   )
 }

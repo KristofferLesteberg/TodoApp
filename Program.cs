@@ -13,15 +13,19 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen();
 
+
 var app = builder.Build();
 
-app.UseSwagger();
-app.UseSwaggerUI();
-//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
+
 
 using (var scope = app.Services.CreateScope())
 {

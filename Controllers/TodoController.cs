@@ -2,11 +2,13 @@ using Microsoft.AspNetCore.Mvc;
 using PostgresAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.AspNetCore.Cors;
 
 namespace TodoApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("CorsPolicy")]
     public class TodoAppController : ControllerBase
     {
         //Legge til Dbcontext
@@ -21,7 +23,6 @@ namespace TodoApp.Controllers
         public async Task<IActionResult> GetTodo()
         {
             var todoResult = await _context.Todos.ToListAsync();
-
             return Ok(todoResult);
         }
 

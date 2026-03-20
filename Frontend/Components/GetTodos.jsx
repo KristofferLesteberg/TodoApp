@@ -1,38 +1,55 @@
 import React, { useEffect, useState } from 'react'
+import '../src/App'
 
-const GetTodos = () => {
+const GetTodos = ({ todos, setTodos }) => {
     const [loading, setLoading] = useState(true)
-    const [todosData, setTodosData] = useState(null)
 
     useEffect(() => {
-        try {
-            const respons = fetch("http://localhost:8080/api/TodoApp/GetTodos")
+        const getTodos = async () => {
+            try {
+                const respons = await fetch("/api/TodoApp/GetTodos")
 
-            if(!respons.ok) {
-                throw new Error("Respons was not ok")
+                if(!respons.ok) {
+                    throw new Error("Error fetching")
+                }
+
+                const result = await respons.json()
+
+                console.log(result)
+
+                setTodos(result)
+            } catch(error) {
+                console.log(error.message)
+            } finally {
+                setLoading(false)
             }
-            
-            const result = respons.json()
-            setTodosData(result)
-
-        } catch(error) {
-            console.log(error.message)
+        
         }
-
+        getTodos()
     }, [])
 
 
-
-
-
-  return (
+   if(loading) {
+    return (
+        <div>loading...</div>
+    )
+   } else {
+     return (
     <div>
-
-
-
-
+            {todos.map((todo, key) => (
+                <div key={key}>
+                    <p>{key}</p>
+                    <p>{todo.name}</p>
+                    <p>{todo.description}</p>
+                    <p>{todo.isComplete}</p>
+                </div>
+            ))}
+        
     </div>
   )
+
+   }
+
 }
 
 export default GetTodos
