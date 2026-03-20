@@ -15,7 +15,7 @@ const App = () => {
       
       <GetTodos todos={todos} setTodos={setTodos} />
 
-      <CreateTodo />
+      <CreateTodo todos={todos} setTodos={setTodos}/>
     </div>
   )
 }

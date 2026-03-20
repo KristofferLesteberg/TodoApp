@@ -8,15 +8,6 @@ const CreateTodo = ({ todos, setTodos }) => {
     const [description, setDescription] =useState("")
     
 
-
-    const addTodoToTodos = () => {
-        const todo = {
-            "name": name,
-            "description": description
-        }
-        setTodos(todo)
-    }
-
     const addTodo = async (e) => {
         e.preventDefault()
 
@@ -35,15 +26,17 @@ const CreateTodo = ({ todos, setTodos }) => {
                 throw new Error("respons was not ok")
             }
             const result = await respons.json()
+            console.log(result)
+
+
+            //add new array to the todo-array
+            setTodos([...todos, result])
             
         } catch(error) {
             console.log(error.message)
         } finally {
             setName("")
             setDescription("")
-
-            //Force reload - not optimal
-            window.location.reload();
         } 
     }
 
