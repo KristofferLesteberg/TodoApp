@@ -45,7 +45,7 @@ namespace TodoApp.Controllers
             return Ok(todo);
         }
 
-        [HttpDelete("DeleteTodo")]
+        [HttpDelete("DeleteTodo/{todoId}")]
         public async Task<IActionResult> DeleteTodo(int todoId)
         {
             var todoRow = await _context.Todos.Where(x => x.Id == todoId).ExecuteDeleteAsync();

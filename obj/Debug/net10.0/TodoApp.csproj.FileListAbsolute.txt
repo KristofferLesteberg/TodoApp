@@ -138,3 +138,5 @@ C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\bin\Debug\net10.0\Sprache.dl
 C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\bin\Debug\net10.0\Frontend\package-lock.json
+C:\Users\edu6194294\Documents\skoleOppgaver\TodoApp\bin\Debug\net10.0\Frontend\package.json

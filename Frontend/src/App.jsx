@@ -4,18 +4,18 @@ import { useState } from 'react'
 
 import CreateTodo from '../Components/CreateTodo'
 import GetTodos from '../Components/GetTodos'
+import DeleteTodo from '../Components/DeleteTodo'
+import Todos from '../Components/Todos'
 
 
 const App = () => {
   const [todos, setTodos] = useState([])
 
-
   return (
-    <div>
-      
-      <GetTodos todos={todos} setTodos={setTodos} />
+    <div>     
 
-      <CreateTodo todos={todos} setTodos={setTodos}/>
+      <Todos todos={todos} setTodos={setTodos} />
+      
     </div>
   )
 }
