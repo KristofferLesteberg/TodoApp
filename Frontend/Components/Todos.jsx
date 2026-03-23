@@ -10,8 +10,12 @@ const Todos = ({ todos, setTodos }) => {
 
     const [newName, setNewName] = useState("")
     const [newdescription, setNewDescription] =useState("")
+    const [newIsComplete, setNewIsComplete] = useState(false)
 
 
+    const [update, setUpdate] = useState(false)
+    const [editingId, setEditingId] = useState(null)
+    
     const [loading, setLoading] = useState(false)
 
     //Get todos
@@ -92,45 +96,66 @@ const Todos = ({ todos, setTodos }) => {
 
     }
 
-    const updateTodo = async () => {
+    const updateTodo = async (e, id) => {
+        e.preventDefault()
 
         const updatedData = {
             method: "PUT",
             headers: {
-                "Content-type" : "applcation/json"
+                "Content-type" : "application/json"
             },
             body: JSON.stringify({
-                "name": newName,
-                "description": newdescription
+                "Id": id,
+                "Name": newName,
+                "IsComplete": false,
+                "Description": newdescription
             })
         }
 
         try {
-
+            const respons = await fetch(`/api/TodoApp/UpdateTodo`, updatedData)
+            const updatedTodo = await respons.json()
+           
+           
+        } catch(error) {
+            console.log(error.message)
         }
-
-
-
     }
 
   return (
     <main>
 
         <div>
-            <ul>
                 {todos.map((todo, key) => (
                     <div key={key}>
-                    <   p>{key}</p>
+                        <p>{key}</p>
                         <p>{todo.name}</p>
                         <p>{todo.description}</p>
                         <p>{todo.isComplete}</p>
                         <button onClick={() => deleteTodo(todo.id)}>Delete todo</button>
+                        <button onClick={() => setEditingId(todo.id)}>Update Todo</button>
+                        
+                        {editingId == todo.id && (
+                            <form onSubmit={(e) => updateTodo(e, todo.id)}>
+                                <input
+                                    type='text'
+                                    value={newName}
+                                    placeholder='Todo name..'
+                                    onChange={(e) => setNewName(e.target.value)}
+                                />
+                                <input
+                                    type='text'
+                                    value={newdescription}
+                                    placeholder='Todo description..'
+                                    onChange={(e) => setNewDescription(e.target.value)}
+                                />
+                                <button type='submit'>Add todo</button>
+                            </form>
+                        )}
                     </div>
-
                 ))}
-            </ul>
         </div>
-
+        
         <div>
             <form onSubmit={addTodo}>
                 <input

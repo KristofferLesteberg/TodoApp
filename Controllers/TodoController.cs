@@ -42,6 +42,9 @@ namespace TodoApp.Controllers
                     .SetProperty(x => x.Name, todo.Name)
                     .SetProperty(x => x.IsComplete, todo.IsComplete)
                     .SetProperty(x => x.Description, todo.Description));
+
+
+            await _context.SaveChangesAsync();
             return Ok(todo);
         }
 
