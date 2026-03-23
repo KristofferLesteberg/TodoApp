@@ -1,4 +1,5 @@
 import React from 'react'
+import EditTodo from './EditTodo';
 
 const Todo = ({ todo, updateTodo, deleteTodo, editingId, setEditingId, newData, setNewData }) => {
   return (
@@ -22,26 +23,12 @@ const Todo = ({ todo, updateTodo, deleteTodo, editingId, setEditingId, newData, 
 
 
             {editingId == todo.id && (
-                <form onSubmit={(e) => updateTodo(e, todo.id)}>
-                      <input
-                        type='text'
-                        value={newData.name}
-                        placeholder='Todo name..'
-                        onChange={(e) => setNewData({
-                            
-                            
-                        })}
-                    />
-                    <input
-                        type='text'
-                        value={newData.description}
-                        placeholder='Todo description..'
-                        onChange={(e) => setNewDescription({
-                            "description": e.target.value
-                        })}
-                    />
-                        <button type='submit'>Add todo</button>
-                </form>
+                <EditTodo
+                    todo={todo}
+                    updateTodo={updateTodo}
+                    newData={newData}
+                    setNewData={setNewData}
+                />
                                   
                 
             )} 
