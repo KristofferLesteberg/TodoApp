@@ -2,22 +2,22 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 
 import '../src/App'
+import Todo from './Todo'
 
 
 const Todos = ({ todos, setTodos }) => {
     const [name, setName] = useState("")
     const [description, setDescription] =useState("")
 
-    const [newName, setNewName] = useState("")
-    const [newdescription, setNewDescription] =useState("")
-    const [newIsComplete, setNewIsComplete] = useState(false)
-
+    const [newData, setNewData] = useState({
+        name: "",
+        description: "",
+        isComplete: false
+    })
 
     const [update, setUpdate] = useState(false)
     const [editingId, setEditingId] = useState(null)
     
-    const [loading, setLoading] = useState(false)
-
     //Get todos
     useEffect(() => {
         const getTodos = async () => {
@@ -34,9 +34,7 @@ const Todos = ({ todos, setTodos }) => {
                 setTodos(result)
             } catch(error) {
                 console.log(error.message)
-            } finally {
-                setLoading(false)
-            }
+            } 
         }
         getTodos()
     }, [])
@@ -106,9 +104,9 @@ const Todos = ({ todos, setTodos }) => {
             },
             body: JSON.stringify({
                 "Id": id,
-                "Name": newName,
-                "IsComplete": false,
-                "Description": newdescription
+                "Name": newData.name,
+                "IsComplete": newData.isComplete,
+                "Description": newData.description
             })
         }
 
@@ -124,35 +122,18 @@ const Todos = ({ todos, setTodos }) => {
 
   return (
     <main>
-
         <div>
-                {todos.map((todo, key) => (
-                    <div key={key}>
-                        <p>{key}</p>
-                        <p>{todo.name}</p>
-                        <p>{todo.description}</p>
-                        <p>{todo.isComplete}</p>
-                        <button onClick={() => deleteTodo(todo.id)}>Delete todo</button>
-                        <button onClick={() => setEditingId(todo.id)}>Update Todo</button>
-                        
-                        {editingId == todo.id && (
-                            <form onSubmit={(e) => updateTodo(e, todo.id)}>
-                                <input
-                                    type='text'
-                                    value={newName}
-                                    placeholder='Todo name..'
-                                    onChange={(e) => setNewName(e.target.value)}
-                                />
-                                <input
-                                    type='text'
-                                    value={newdescription}
-                                    placeholder='Todo description..'
-                                    onChange={(e) => setNewDescription(e.target.value)}
-                                />
-                                <button type='submit'>Add todo</button>
-                            </form>
-                        )}
-                    </div>
+                {todos.map((todo) => (
+                    <Todo
+                        key={todo.id}
+                        todo={todo}
+                        updateTodo={updateTodo}
+                        deleteTodo={deleteTodo}
+                        editingId={editingId}
+                        setEditingId={setEditingId}
+                        newData={newData}
+                        setNewData={setNewData}
+                    />
                 ))}
         </div>
         
