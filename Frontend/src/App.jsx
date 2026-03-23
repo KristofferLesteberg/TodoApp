@@ -2,9 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 
 
-import CreateTodo from '../Components/CreateTodo'
-import GetTodos from '../Components/GetTodos'
-import DeleteTodo from '../Components/DeleteTodo'
 import Todos from '../Components/Todos'
 
 
@@ -15,7 +12,7 @@ const App = () => {
     <div>     
 
       <Todos todos={todos} setTodos={setTodos} />
-      
+
     </div>
   )
 }

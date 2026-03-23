@@ -8,6 +8,10 @@ const Todos = ({ todos, setTodos }) => {
     const [name, setName] = useState("")
     const [description, setDescription] =useState("")
 
+    const [newName, setNewName] = useState("")
+    const [newdescription, setNewDescription] =useState("")
+
+
     const [loading, setLoading] = useState(false)
 
     //Get todos
@@ -69,14 +73,44 @@ const Todos = ({ todos, setTodos }) => {
         } 
     }
     
+    const deleteTodo = async (id) => {
 
+        try {
+            const respons = await fetch(`/api/TodoApp/DeleteTodo?todoId=${id}`, {
+                method: "DELETE"
+            })
 
-    const deleteTodo = async () => {
+            if(!respons.ok) {
+                throw new Error("Respons was not ok")
+            }
+            //update Todos array
+            setTodos(todos.filter((newArray) => newArray.id != id))
+
+        } catch(error) {
+            console.log(error.message)
+        }
 
     }
 
     const updateTodo = async () => {
-        
+
+        const updatedData = {
+            method: "PUT",
+            headers: {
+                "Content-type" : "applcation/json"
+            },
+            body: JSON.stringify({
+                "name": newName,
+                "description": newdescription
+            })
+        }
+
+        try {
+
+        }
+
+
+
     }
 
   return (
@@ -90,6 +124,7 @@ const Todos = ({ todos, setTodos }) => {
                         <p>{todo.name}</p>
                         <p>{todo.description}</p>
                         <p>{todo.isComplete}</p>
+                        <button onClick={() => deleteTodo(todo.id)}>Delete todo</button>
                     </div>
 
                 ))}
