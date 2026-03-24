@@ -115,7 +115,15 @@ const Todos = ({ todos, setTodos }) => {
 
         try {
             const respons = await fetch(`/api/TodoApp/UpdateTodo`, updatedData)
+
+
             const updatedTodo = await respons.json()
+            console.log(updatedTodo)
+            setTodos(todos.map((todo => 
+                todo.id == id ? updatedTodo : todo
+            )))
+
+            
            
            
         } catch(error) {

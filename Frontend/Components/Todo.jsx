@@ -10,6 +10,7 @@ const Todo = ({ todo, updateTodo, deleteTodo, editingId, setEditingId, newData, 
     
   return (
     <div className={styles.todoContainer}>
+
         <div className={styles.todoInfo}>
             <p>{todo.isComplete == false ? "ikke ferdig" : "Ferdig"}</p>
             <p>{todo.name}</p>

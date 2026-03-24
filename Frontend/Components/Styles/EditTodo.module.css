@@ -1,6 +1,4 @@
 .updateForm {
-
-
     position: fixed;
     inset: 0;
     top: 25%;
@@ -15,11 +13,31 @@
 .input {
     margin-top: 5rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    
+  
+}
 
-   
-
-   
+.input input {
+    margin-right: auto;
+    margin-left: auto;
 
     background-color: hsl(0, 0%, 70%);
+
+
+    width: 50%;
+    height: 30px;
+}
+
+.input h1 {
+    padding: 0;
+    margin: 0;
+}
+
+.exitBtn {
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 7%;
+    height: 40px;
 }

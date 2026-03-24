@@ -5,14 +5,24 @@ import styles from './Styles/EditTodo.module.css'
 
 const EditTodo = ({ todo, updateTodo, newData, setNewData, showEdit, setShowEdit }) => {
   return (
-    <form className={styles.updateForm} onSubmit={(e) => updateTodo(e, todo.id)}>
+    <form className={styles.updateForm} onSubmit={(e) => {
+        updateTodo(e, todo.id);
+        setShowEdit(!showEdit)
+        }}>
         <div className={styles.infoTodo}>
-            <button onClick={() => setShowEdit(!showEdit)}>x</button>
+            <button 
+                onClick={() => setShowEdit(!showEdit)}
+                className={styles.exitBtn}
+                >
+                    x
+                </button>
             <div className={styles.input}>
+                <h1>Edit {todo.name}</h1>
+                
                     <input
                         type='text'
                         value={newData.name}
-                        placeholder='Todo name..'
+                        placeholder='Set a new name'
                         onChange={(e) => setNewData({
                                 ...newData,
                                 "name": e.target.value,
@@ -21,7 +31,7 @@ const EditTodo = ({ todo, updateTodo, newData, setNewData, showEdit, setShowEdit
                     <input
                         type='text'
                         value={newData.description}
-                        placeholder='Todo description..'
+                        placeholder='Set a new description'
                         onChange={(e) => setNewData({
                                 ...newData,
                                 "description": e.target.value
@@ -31,8 +41,6 @@ const EditTodo = ({ todo, updateTodo, newData, setNewData, showEdit, setShowEdit
                 <button
                     type='submit'
                     className={styles.button}
-                    
-                 
                  >Edit
                  </button>
             </div>
