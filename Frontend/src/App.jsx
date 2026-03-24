@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 
 import Todos from '../Components/Todos'
+import '../src/App.css'
 
 
 const App = () => {

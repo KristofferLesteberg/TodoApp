@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import '../src/App'
 import Todo from './Todo'
 
+import styles from './Styles/Todos.module.css'
+
 const Todos = ({ todos, setTodos }) => {
     const [name, setName] = useState("")
     const [description, setDescription] =useState("")
@@ -118,7 +120,27 @@ const Todos = ({ todos, setTodos }) => {
     }
 
   return (
-    <main>
+    <main className={styles.todoContainer}>
+        <div className={styles.AddTodoContainer}>
+            <form onSubmit={addTodo}>
+                <input
+                    className={styles.input}
+                    type='text'
+                    value={name}
+                    placeholder='Todo name..'
+                    onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                    className={styles.input}
+                    type='text'
+                    value={description}
+                    placeholder='Todo description..'
+                    onChange={(e) => setDescription(e.target.value)}
+                />
+                <button type='submit'>Add todo</button>
+            </form>
+        </div>
+
         <div>
             {todos.map((todo) => (
                 <Todo
@@ -134,23 +156,7 @@ const Todos = ({ todos, setTodos }) => {
             ))}
         </div>
         
-        <div>
-            <form onSubmit={addTodo}>
-                <input
-                    type='text'
-                    value={name}
-                    placeholder='Todo name..'
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <input
-                    type='text'
-                    value={description}
-                    placeholder='Todo description..'
-                    onChange={(e) => setDescription(e.target.value)}
-                />
-                <button type='submit'>Add todo</button>
-            </form>
-        </div>
+        
     </main>
     
     

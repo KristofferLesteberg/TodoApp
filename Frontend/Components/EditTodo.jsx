@@ -1,9 +1,11 @@
 import React from 'react'
 import './Todo'
 
+import styles from './Styles/EditTodo.module.css'
+
 const EditTodo = ({ todo, updateTodo, newData, setNewData }) => {
   return (
-    <form onSubmit={(e) => updateTodo(e, todo.id)}>
+    <form className={styles.updateForm} onSubmit={(e) => updateTodo(e, todo.id)}>
         <input
             type='text'
             value={newData.name}
