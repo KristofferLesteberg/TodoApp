@@ -2,11 +2,13 @@ using Microsoft.AspNetCore.Mvc;
 using PostgresAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.AspNetCore.Cors;
 
 namespace TodoApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    
     public class TodoAppController : ControllerBase
     {
         //Legge til Dbcontext
@@ -15,18 +17,11 @@ namespace TodoApp.Controllers
         {
             _context = context;
         }
-        //Get endpoint
+
         [HttpGet("GetTodos")]
         public async Task<IActionResult> GetTodo()
         {
-            var todoResult = await _context.Todos.Select(x => new TodoModel
-            {
-                Id = x.Id,
-                Name = x.Name,
-                IsComplete = x.IsComplete,
-                Description = x.Description,
-            }).ToListAsync();
-
+            var todoResult = await _context.Todos.ToListAsync();
             return Ok(todoResult);
         }
 
@@ -48,14 +43,17 @@ namespace TodoApp.Controllers
                     .SetProperty(x => x.IsComplete, todo.IsComplete)
                     .SetProperty(x => x.Description, todo.Description));
 
+
+            await _context.SaveChangesAsync();
             return Ok(todo);
         }
 
-        [HttpDelete("DeleteTodo")]
+        [HttpDelete("DeleteTodo/{todoId}")]
+
         public async Task<IActionResult> DeleteTodo(int todoId)
         {
+            
             var todoRow = await _context.Todos.Where(x => x.Id == todoId).ExecuteDeleteAsync();
-
             return Ok(true);
         }    
     }
