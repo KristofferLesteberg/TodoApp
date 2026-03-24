@@ -8,7 +8,7 @@ namespace TodoApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("CorsPolicy")]
+    
     public class TodoAppController : ControllerBase
     {
         //Legge til Dbcontext

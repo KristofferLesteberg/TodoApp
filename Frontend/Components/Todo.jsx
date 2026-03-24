@@ -12,7 +12,10 @@ const Todo = ({ todo, updateTodo, deleteTodo, editingId, setEditingId, newData, 
     <div className={styles.todoContainer}>
 
         <div className={styles.todoInfo}>
-            <p>{todo.isComplete == false ? "ikke ferdig" : "Ferdig"}</p>
+            <button className={todo.isComplete ? styles.Complete : styles.notComplete}>
+                {todo.isComplete ? "Done" : "Not done"}
+            </button>
+            
             <p>{todo.name}</p>
         </div>
         <div className={styles.todoBtn}>
@@ -43,4 +46,4 @@ const Todo = ({ todo, updateTodo, deleteTodo, editingId, setEditingId, newData, 
   )
 }
 
-export default Todo
+export default Todo 

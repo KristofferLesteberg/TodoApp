@@ -60,3 +60,18 @@
 .editBtn:hover {
     background-color: darkgreen;
 }
+
+
+.todoInfo button {
+   
+}
+
+.notComplete {
+    background-color: red;
+    color: white;
+}
+
+.Complete {
+    background-color: green;
+    color: white;
+}
