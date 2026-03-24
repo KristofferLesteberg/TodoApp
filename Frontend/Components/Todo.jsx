@@ -15,8 +15,11 @@ const Todo = ({ todo, updateTodo, deleteTodo, editingId, setEditingId, newData, 
             <button className={todo.isComplete ? styles.Complete : styles.notComplete}>
                 {todo.isComplete ? "Done" : "Not done"}
             </button>
-            
-            <p>{todo.name}</p>
+            <div className={styles.todoText}>
+                <h3>{todo.name}</h3>
+                
+                <p>{todo.description}</p>
+            </div>
         </div>
         <div className={styles.todoBtn}>
             <button className={styles.deleteBtn} onClick={() => deleteTodo(todo.id)}>x</button>

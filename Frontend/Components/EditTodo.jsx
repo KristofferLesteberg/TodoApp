@@ -17,7 +17,7 @@ const EditTodo = ({ todo, updateTodo, newData, setNewData, showEdit, setShowEdit
                     x
                 </button>
             <div className={styles.input}>
-                <h1>Edit {todo.name}</h1>
+                <p>Edit: <b>{todo.name}</b> todo</p>
 
                     <input
                         type='text'
@@ -37,21 +37,24 @@ const EditTodo = ({ todo, updateTodo, newData, setNewData, showEdit, setShowEdit
                                 "description": e.target.value
                             })}
                     />
+
                     <button
                         className={styles.isComplete}
                         type='button'
-                        onClick={(e) => setNewData({
+                        onClick={() => setNewData({
                             ...newData,
-                            "isComplete": !todo.isComplete
+                            "isComplete": !newData.isComplete
                         })}
+                        
                     >
-                        Finish
+                        {newData.isComplete ? "Done" : "Not Done"}
                     </button>
-                    
+
+
                 </div>
                 <button
                     type='submit'
-                    className={styles.button}
+                    className={styles.editButton}
                  >Edit
                  </button>
             </div>
