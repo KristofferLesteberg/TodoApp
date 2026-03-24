@@ -42,6 +42,10 @@ const Todos = ({ todos, setTodos }) => {
          
     const addTodo = async (e) => {
         e.preventDefault()
+
+        if(name === "" || description === "") {
+            return 0;
+        }
     
         //Create POST request - method, headers and content(body)
         const POSTdata = {
@@ -141,7 +145,7 @@ const Todos = ({ todos, setTodos }) => {
             </form>
         </div>
 
-        <div>
+        <div className={styles.todos}>
             {todos.map((todo) => (
                 <Todo
                     key={todo.id}

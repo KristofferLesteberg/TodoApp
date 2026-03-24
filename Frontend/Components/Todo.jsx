@@ -1,9 +1,15 @@
 import React from 'react'
+import { useState } from 'react';
 import EditTodo from './EditTodo';
 
 import styles from './Styles/Todo.module.css'
 
 const Todo = ({ todo, updateTodo, deleteTodo, editingId, setEditingId, newData, setNewData }) => {
+
+    const [showEdit, setShowEdit] = useState(false)
+    
+
+
   return (
     <div className={styles.todoContainer}>
         <div className={styles.todoInfo}>
@@ -18,11 +24,12 @@ const Todo = ({ todo, updateTodo, deleteTodo, editingId, setEditingId, newData, 
                     "name": "",
                     "description": "",
                     "isComplete": false
-                })
+                });
+                setShowEdit(!showEdit)
                 }}>
                     Edit
                 </button>
-                {editingId == todo.id && (
+                {editingId == todo.id && showEdit && (
                     <EditTodo
                         todo={todo}
                         updateTodo={updateTodo}

@@ -26,6 +26,8 @@
 
     background-color: blue;
     color: white;
+
+    cursor: pointer;
 }
 
 .input {
@@ -37,4 +39,6 @@
 
     background-color: hsl(0, 0%, 70%);
 }
+
+
 
