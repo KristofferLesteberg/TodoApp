@@ -20,8 +20,6 @@ const Todo = ({ todo, updateTodo, deleteTodo, editingId, setEditingId, newData, 
             }}>
                 Edit
             </button>
-
-
             {editingId == todo.id && (
                 <EditTodo
                     todo={todo}
@@ -29,13 +27,7 @@ const Todo = ({ todo, updateTodo, deleteTodo, editingId, setEditingId, newData, 
                     newData={newData}
                     setNewData={setNewData}
                 />
-                                  
-                
-            )} 
-
-
-
-
+            )}
     </div>
   )
 }

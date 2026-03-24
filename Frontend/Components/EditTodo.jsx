@@ -4,9 +4,7 @@ import './Todo'
 const EditTodo = ({ todo, updateTodo, newData, setNewData }) => {
   return (
     <form onSubmit={(e) => updateTodo(e, todo.id)}>
-
         <input
-
             type='text'
             value={newData.name}
             placeholder='Todo name..'

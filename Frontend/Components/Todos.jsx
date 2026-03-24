@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import '../src/App'
 import Todo from './Todo'
 
-
 const Todos = ({ todos, setTodos }) => {
     const [name, setName] = useState("")
     const [description, setDescription] =useState("")
@@ -14,8 +13,6 @@ const Todos = ({ todos, setTodos }) => {
         description: "",
         isComplete: false
     })
-
-    const [update, setUpdate] = useState(false)
     const [editingId, setEditingId] = useState(null)
     
     //Get todos
@@ -123,18 +120,18 @@ const Todos = ({ todos, setTodos }) => {
   return (
     <main>
         <div>
-                {todos.map((todo) => (
-                    <Todo
-                        key={todo.id}
-                        todo={todo}
-                        updateTodo={updateTodo}
-                        deleteTodo={deleteTodo}
-                        editingId={editingId}
-                        setEditingId={setEditingId}
-                        newData={newData}
-                        setNewData={setNewData}
-                    />
-                ))}
+            {todos.map((todo) => (
+                <Todo
+                    key={todo.id}
+                    todo={todo}
+                    updateTodo={updateTodo}
+                    deleteTodo={deleteTodo}
+                    editingId={editingId}
+                    setEditingId={setEditingId}
+                    newData={newData}
+                    setNewData={setNewData}
+                />
+            ))}
         </div>
         
         <div>
