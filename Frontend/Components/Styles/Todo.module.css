@@ -75,3 +75,14 @@
     background-color: green;
     color: white;
 }
+
+.todoText {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.todoText p, h3{
+    padding: 0;
+    margin: 0;
+}
+

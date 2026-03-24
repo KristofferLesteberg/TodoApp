@@ -7,7 +7,10 @@
 
     background-color: hsl(0, 0%, 80%);
     width: 50vw;
-    height: 50vh;
+    height: 500px;
+    
+    border: 1px solid;
+    border-radius: 5px;
 }
 
 .input {
@@ -30,9 +33,14 @@
     height: 30px;
 }
 
-.input h1 {
+.input p {
     padding: 0;
     margin: 0;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    font-size: 30px;
 }
 
 .exitBtn {
@@ -48,5 +56,11 @@
 
 
     width: 50%;
+    height: 40px;
+}
+
+.editButton {
+    margin-left: auto;
+    width: 20%;
     height: 40px;
 }
