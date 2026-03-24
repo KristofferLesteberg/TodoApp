@@ -8,8 +8,6 @@ const Todo = ({ todo, updateTodo, deleteTodo, editingId, setEditingId, newData, 
 
     const [showEdit, setShowEdit] = useState(false)
     
-
-
   return (
     <div className={styles.todoContainer}>
         <div className={styles.todoInfo}>
@@ -35,6 +33,8 @@ const Todo = ({ todo, updateTodo, deleteTodo, editingId, setEditingId, newData, 
                         updateTodo={updateTodo}
                         newData={newData}
                         setNewData={setNewData}
+                        showEdit={showEdit}
+                        setShowEdit={setShowEdit}
                     />
                 )}
             </div>

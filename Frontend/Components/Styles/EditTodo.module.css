@@ -1,4 +1,25 @@
 .updateForm {
- 
- 
+
+
+    position: fixed;
+    inset: 0;
+    top: 25%;
+    left: 25%;
+    
+
+    background-color: hsl(0, 0%, 80%);
+    width: 50vw;
+    height: 50vh;
+}
+
+.input {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+
+   
+
+   
+
+    background-color: hsl(0, 0%, 70%);
 }
