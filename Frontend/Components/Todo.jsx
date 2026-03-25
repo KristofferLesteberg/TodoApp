@@ -26,8 +26,8 @@ const Todo = ({ todo, updateTodo, deleteTodo, editingId, setEditingId, newData, 
             <button className={styles.editBtn} onClick={() => {
                 setEditingId(todo.id);
                 setNewData({
-                    "name": "",
-                    "description": "",
+                    "name": todo.name,
+                    "description": todo.description,
                     "isComplete": false
                 });
                 setShowEdit(!showEdit)

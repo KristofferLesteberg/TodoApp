@@ -4,10 +4,14 @@ import './Todo'
 import styles from './Styles/EditTodo.module.css'
 
 const EditTodo = ({ todo, updateTodo, newData, setNewData, showEdit, setShowEdit }) => {
+
+
+
   return (
     <form className={styles.updateForm} onSubmit={(e) => {
         updateTodo(e, todo.id);
-        setShowEdit(!showEdit)
+        setShowEdit(!showEdit);
+        
         }}>
         <div className={styles.infoTodo}>
             <button 
